@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="text-center">Главная страница</h1>
+        <h1 class="text-center">Информация</h1>
     </div>
 </template>
 
@@ -10,6 +10,6 @@
     }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 </style>

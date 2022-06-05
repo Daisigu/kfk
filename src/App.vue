@@ -1,7 +1,9 @@
 <template>
     <div>
         <mainHeader />
-        <arhcive :users="users"/>
+        <router-view :users="users">
+        </router-view>
+
     </div>
 </template>
 
@@ -9,11 +11,13 @@
 import mainHeader from './components/mainHeader.vue'
 import Arhcive from './pages/arhcive.vue'
 import axios from 'axios'
+import MainPage from './pages/mainPage.vue'
 export default {
     components: {
-        mainHeader,
-        Arhcive
-    },
+    mainHeader,
+    Arhcive,
+    MainPage
+},
     data() {
         return {
             users: []
