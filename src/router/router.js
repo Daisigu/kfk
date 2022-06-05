@@ -10,6 +10,10 @@ const routes = [
         component: mainPage
     },
     {
+        path: '/',
+        component: mainPage
+    },
+    {
         path: '/arhcive',
         component: archive
     },
