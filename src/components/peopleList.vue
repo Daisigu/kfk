@@ -5,14 +5,11 @@
                 aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
         </div>
+
         <div class="list-group">
-            
-             <PeopleListItem
-                v-for="user in searchUser"
-                :users="searchUser"
-                :user="user"
-                :key="user.id"
-        />
+
+            <PeopleListItem   v-if="searchUser.length > 0" v-for="user in searchUser" :users="searchUser" :user="user" :key="user.id" />
+            <h1>Введите имя</h1>
         </div>
     </div>
 </template>
@@ -21,23 +18,23 @@
 import PeopleListItem from './peopleListItem.vue';
 export default {
     components: { PeopleListItem },
-     props: {
+    props: {
         users: {
             type: Array,
             required: true,
         }
     },
-    data(){
+    data() {
         return {
             userName: ''
         }
     },
     computed: {
-            searchUser(){      
-            return this.users.filter( user=> user.name.includes(this.userName))         
+        searchUser() {
+            return this.users.filter(user => user.name.includes(this.userName))
         }
     }
-   
+
 }
 </script>
 
