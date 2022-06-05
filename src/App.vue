@@ -1,30 +1,46 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+    <div>
+        <mainHeader />
+        <arhcive :users="users"/>
+    </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import mainHeader from './components/mainHeader.vue'
+import Arhcive from './pages/arhcive.vue'
+import axios from 'axios'
+export default {
+    components: {
+        mainHeader,
+        Arhcive
+    },
+    data() {
+        return {
+            users: []
+        }
+    },
+    methods: {
+        async fetchUsers(){
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+                this.users = response.data;
+            }
+            catch(e) {
+                alert('Ошибка')
+            }
+        }
+    },
+    mounted() {
+        this.fetchUsers();
+  }
 
-nav {
-  padding: 30px;
 }
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+<style lang="css" >
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 </style>
