@@ -9,7 +9,7 @@
         <div class="list-group">
 
             <PeopleListItem   v-if="searchUser.length > 0" v-for="user in searchUser" :users="searchUser" :user="user" :key="user.id" />
-            <h1>Введите имя</h1>
+            <h1 v-else class="text-center">Введите имя</h1>
         </div>
     </div>
 </template>
